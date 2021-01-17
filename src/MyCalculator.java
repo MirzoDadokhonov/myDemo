@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class MyCalculator {
     public static int x;
     public static int y;
@@ -6,13 +9,16 @@ public class MyCalculator {
     public static String y0;
 
 
-    public static void main(String[] args) {
-        if (args.length != 3) {
+    public static void main(String[] args) throws CalculatorException {
+        Scanner sc = new Scanner(System.in);
+        String[] args2 = sc.nextLine().split(" ");
+
+        if (args2.length != 3) {
             throw new CalculatorException("Incorrect amount of arguments given!!!");
         } else {
-            x0 = args[0];
-            y0 = args[2];
-            op = args[1];
+            x0 = args2[0];
+            y0 = args2[2];
+            op = args2[1];
             Calculator calculator = checkData();
             calculator.calculate();
             calculator.printAns();
